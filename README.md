@@ -1,4 +1,4 @@
-Open-source robot vision library for picking up trash.
+TrashVision is an open-source robot vision library for waste management.
 
 **Supported Hardware:** Only Brachiio arm at the moment.
 
