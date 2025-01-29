@@ -14,3 +14,16 @@ Jupyter Notebook is a headache so I recommend using the Graphical User Interface
 
 **How to install dependencies**
 Run the first cell in `computer_vision.ipynb` to install the dependencies.
+
+### Dataset
+
+The dataset spans six classes: glass, paper, cardboard, plastic, metal, and trash. Currently, the dataset consists of 2527 images:
+
+- 501 glass
+- 594 paper
+- 403 cardboard
+- 482 plastic
+- 410 metal
+- 137 trash
+
+Credit: https://github.com/garythung/trashnet
