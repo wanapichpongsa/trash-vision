@@ -1,4 +1,8 @@
 TODO:
+- [✔️] Computer Camera API
+- [✔️] Classification model functionality
+- [ ] Accuracy score: 0 || 1 if true, float confidence weighting (Extra: Obscurity score? e.g., snowmobile for trashbag???)
+- [ ] Store training history in SQL/ORM DB (image.jpg -> top 3 predictions -> % accuracy)
 - [ ] Train Object Classification model
 - [ ] Phone camera API (i.e., what index for phone connected to computer.)
 - [ ] Message to Arduino

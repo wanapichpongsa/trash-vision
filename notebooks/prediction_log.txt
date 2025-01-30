@@ -1,0 +1,11 @@
+
+# image
+trashbag_1.jpg
+
+# prediction
+2025-01-30 09:14:29,057 - INFO - prediction 1: plastic bag (728) -> 0.391
+2025-01-30 09:14:29,058 - INFO - prediction 2: motor scooter (670) -> 0.021
+2025-01-30 09:14:29,058 - INFO - prediction 3: snowmobile (802) -> 0.015
+
+# accuracy score
+0.391
