@@ -7,5 +7,14 @@ trashbag_1.jpg
 2025-01-30 09:14:29,058 - INFO - prediction 2: motor scooter (670) -> 0.021
 2025-01-30 09:14:29,058 - INFO - prediction 3: snowmobile (802) -> 0.015
 
-# accuracy score
+# true label
+728
+
+# single prediction accuracy 
+100%
+
+# top-3 prediction accuracy
+100%
+
+# confidence score
 0.391
