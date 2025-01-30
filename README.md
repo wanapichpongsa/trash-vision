@@ -1,5 +1,10 @@
 TrashVision is an open-source robot vision library for waste management.
 
+**Research Aim**:
+1. Find out what quality (angle, distance, lighting, etc.) and quantity of images are needed for a robot to be autonomous (>95% accuracy)
+2. How to accurately communicate the location of object and the necessary movement by the robot arm to pick it up.
+3. **Bonus:** Discuss how close we are to robots that can autonomously pick up trash in landfills, and explicitly define what is needed to make this a reality.
+
 **Supported Hardware:** Only Brachiio arm at the moment.
 
 ### Installation
