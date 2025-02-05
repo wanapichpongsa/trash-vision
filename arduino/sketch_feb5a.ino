@@ -3,6 +3,14 @@
 
 constexpr long BAUD_RATE = 9600;
 
+Servo base;
+Servo shoulder;
+Servo elbow;
+Servo wrist_ver;
+Servo wrist_rot;
+Servo gripper;
+
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(BAUD_RATE); 
@@ -24,7 +32,7 @@ void loop() {
   }
   if(python_response == 0 || python_response == 1){
     pickUpTrash();
-    depositTrash(isRecyclable)
+    depositTrash(isRecyclable);
   }
   delay(1000); 
 }
