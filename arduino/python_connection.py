@@ -22,9 +22,11 @@ try:
     logging.info(f"Opened port: {arduino.name}")
 
     def encodeState(trashPresent: bool, isRecyclable: bool) -> int:
-        if not trashPresent:
+        if not trashPresent and not isRecyclable:
             return 0
-        return 1 + (2 if isRecyclable else 1) # Read ARDUINO.md for schema
+        elif not trashPresent and isRecyclable: # I don't know how this would be possible but just thought of it
+            raise ValueError("Contradictory state: Trash not present but is recyclable")
+        return (2 if isRecyclable else 1) # Read ARDUINO.md for schema
 
     # Arbitrarily assign values for testing
     trashPresent = False
@@ -36,10 +38,8 @@ try:
         case 0:
             logging.info("No trash detected")
         case 1:
-            logging.info("Trash detected")
-        case 2:
             logging.info("Trash is not recyclable")
-        case 3:
+        case 2:
             logging.info("Trash is recyclable")
 
     # Once we exceed single byte communication, we use state.to_bytes(length=int, byteorder='little') Arduino is little-endian (AVR)
