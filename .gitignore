@@ -2,3 +2,5 @@
 __pycache__
 /data/dataset-resized
 *.jpg
+
+.DS_Store
