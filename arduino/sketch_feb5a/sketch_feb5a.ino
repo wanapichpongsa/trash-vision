@@ -22,15 +22,14 @@ void loop() {
   // put your main code here, to run repeatedly:
   bool isRecyclable; 
   int python_response = Serial.readString().toInt();
-  if(python_response == 0){
+  if (python_response == 0) {
     isRecyclable = false; 
   } else if (python_response == 1){
     isRecyclable = true; 
-  }
-  else {
+  } else {
     Serial.println("Have not received communication yet");
   }
-  if(python_response == 0 || python_response == 1){
+  if (python_response == 0 || python_response == 1) {
     pickUpTrash();
     depositTrash(isRecyclable);
   }
@@ -45,14 +44,14 @@ Wrist rotation (M5): 90 degrees
 Gripper (M6): 10 degrees
 */ 
 
-void pickUpTrash(){
+void pickUpTrash() {
   Braccio.ServoMovement(20, 90, 45, 90, 180, 90, 10);
   delay(500);
   Braccio.ServoMovement(20, 90, 45, 90, 180, 90, 70);
 }
 
 void depositTrash(bool isRecyclable){
-  if(isRecyclable){
+  if (isRecyclable) {
     Braccio.ServoMovement(20, 45, 45, 120, 180, 90, 70);
     Braccio.ServoMovement(20, 45, 45, 90, 180, 90, 10);
   } else {
