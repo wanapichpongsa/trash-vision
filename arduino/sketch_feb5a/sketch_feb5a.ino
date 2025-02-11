@@ -19,7 +19,7 @@ Servo gripper;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(BAUD_RATE); 
-  Serial.setTimeout(1); // 1ms window of waiting for data before continuing
+  Serial.setTimeout(100); // 1ms window of waiting for data before continuing
   Braccio.begin(); 
 }
 
@@ -52,7 +52,7 @@ void depositTrash(int serialMessage){
 // Upon upload (command U), the Arduino will run this loop indefinitely. No need for return 0 for C/C++ compiler.
 void loop() {
   // put your main code here, to run repeatedly:
-  readAISerial = Serial.read();
+  int readAISerial = Serial.read().toInt();
   if (readAISerial > 0) {
     pickUpTrash();
     depositTrash(readAISerial);
