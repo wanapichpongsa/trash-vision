@@ -20,20 +20,20 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  bool isRecyclable; 
   int python_response = Serial.readString().toInt();
   if (python_response == 0) {
-    delay(1000);
     isRecyclable = false; 
   } else if (python_response == 1){
-    pickUpTrash();
-  } else if (python_response == 2) {
-    depositTrash(false);
-  } else if (python_response == 3) {
-    depositTrash(true);
+    isRecyclable = true; 
+  } else {
+    Serial.println("Have not received communication yet");
   }
-  else {
-    delay(1000);
-  } 
+  if (python_response == 0 || python_response == 1) {
+    pickUpTrash();
+    depositTrash(isRecyclable);
+  }
+  delay(1000); 
 }
 
 /* Base (M1):90 degrees
