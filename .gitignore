@@ -4,3 +4,9 @@ __pycache__
 *.jpg
 
 .DS_Store
+
+# YOLO specific
+runs/
+*.pt
+yolo_runs/
+*.onnx

@@ -43,7 +43,14 @@ class AttentionResNet(nn.Module):
     """
     super(AttentionResNet, self).__init__()
     
-    # Load Pretrained ResNet (ResNet or MobileNet better?)
+    # Load Pretrained ResNet (ResNet or MobileNet better?) or YOLO: https://github.com/ultralytics
+    """
+    YOLO: Divides image into grids, predicts bounding boxes and classes for each grid
+    Faster Region-CNN
+    Masked Region-CNN
+    EfficientNet
+    RetinaNet
+    """
     self.resnet = models.resnet18(pretrained=True) # 1,000 classes from ImageNet
     self.resnet = nn.Sequential(*list(self.resnet.children())[:-2])  # Remove classifiers
     
@@ -62,4 +69,31 @@ class AttentionResNet(nn.Module):
     x = torch.flatten(x, 1)   # Flatten for fully connected layer
     x = self.fc(x)            # Classifier
     
+    return x
+  
+from ultralytics import YOLO
+class AttentionYOLO(nn.Module):
+  def __init__(self, num_classes):
+    super(AttentionYOLO, self).__init__()
+
+    self.yolo = YOLO("yolo11n.pt")
+
+    # Freeze YOLO parameters to prevent them from being updated during training
+    for param in self.yolo.parameters():
+      param.requires_grad = False
+
+    self.attention = SelfAttention(in_dim=512)
+
+    self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
+    self.fc = nn.Linear(512, num_classes)
+
+  def forward(self, x):
+    features = self.yolo.model.backbone(x) # backbone does not exist.
+
+    # Apply attention to last feature map
+    x = self.attention(features[-1])
+    x = self.global_pool(x)
+    x = torch.flatten(x, 1)
+    x = self.fc(x)
+
     return x
