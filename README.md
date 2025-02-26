@@ -11,7 +11,7 @@ TrashVision is an open-source robot vision library for waste management.
 
 If you're experienced, you can setup the environment via CLI (not recommended)
 
-Jupyter Notebook is a headache so I recommend using the Graphical User Interface (GUI) to setup the environment.
+Jupyter Notebook is a headache so I recommend using the Graphical User Interface (GUI) of your IDE (e.g., VSCode) to setup the environment.
 
 1. Go to `computer_vision.ipynb` file and press `select kernel` on the top right corner.
 2. Select `Select Another Kernel` -> `Python Environments...` -> `+ Create New Environment` -> `Venv`
@@ -20,7 +20,9 @@ Jupyter Notebook is a headache so I recommend using the Graphical User Interface
 **How to install dependencies**
 Run the first cell in `computer_vision.ipynb` to install the dependencies.
 
-### Dataset
+### Acknowledgements
+
+Pre-existing deep learning trash sorting robot: https://github.com/bandofpv/Trash-Sorting-Robot
 
 The dataset spans six classes: glass, paper, cardboard, plastic, metal, and trash. Currently, the dataset consists of 2527 images:
 
